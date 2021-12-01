@@ -1,8 +1,11 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <h1>Olá Mundo</h1>
+    <BrowserRouter>
+      <h1>Olá Mundo</h1>
+    </BrowserRouter>
   );
 }
 
