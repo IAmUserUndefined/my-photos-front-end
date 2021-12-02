@@ -1,10 +1,15 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
+import ContainerApp from "./styles/app";
+import { AppRoutes } from "./routes";
+
 const App = () => {
   return (
     <BrowserRouter>
-      <h1>Olá Mundo</h1>
+      <ContainerApp>
+        <AppRoutes />
+      </ContainerApp>
     </BrowserRouter>
   );
 }
