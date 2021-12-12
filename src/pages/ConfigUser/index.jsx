@@ -25,7 +25,7 @@ const ConfigUser = () => {
         </div>
       </Form>
 
-        <br />
+      <br />
 
       <Form name="updatePassword">
         <h2>Atualizar Senha</h2>
@@ -52,7 +52,6 @@ const ConfigUser = () => {
       </Form>
 
       <br />
-
 
       <Form name="deleteUser">
         <h2>Excluir Usuário</h2>
