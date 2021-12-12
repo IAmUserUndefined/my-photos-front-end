@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ButtonStyle = styled.button`
-    width: 80%;
+    width: 100%;
     padding: 0.3em;
     border-radius: 30px;
     background-color: #7159c1;
@@ -9,7 +9,7 @@ const ButtonStyle = styled.button`
     font-size: 1.1rem;
     cursor: pointer;
     border: 1.5px solid #7159c1;
-    margin-top: 12px;
+    margin-top: 5px;
 
     &:hover {
         background-color: #fff;

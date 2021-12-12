@@ -5,6 +5,7 @@ import Login from './pages/Login/index';
 import Register from './pages/Register/index';
 import ForgetPassword from './pages/ForgetPassword/index';
 import ConfigUser from './pages/ConfigUser/index';
+import Photos from './pages/Photos/index';
 
 export const AppRoutes = () => {
     return (
@@ -14,6 +15,7 @@ export const AppRoutes = () => {
                 <Route path="/register" element={<Register />} exact />
                 <Route path="/forget-password" element={<ForgetPassword />} exact />
                 <Route path="/config-user" element={<ConfigUser />} exact />
+                <Route path="/photos" element={<Photos />} exact />
             </Routes>
         </>
     );

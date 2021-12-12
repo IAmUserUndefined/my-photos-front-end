@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeaderLogin from "../../components/Header/index";
+import HeaderLogin from "../../components/HeaderLogin/index";
 import Button from "../../components/Button/index";
 import InputForm from "../../components/InputForm/index";
 
@@ -10,7 +10,8 @@ const ConfigUser = () => {
 
   return (
     <>
-      <HeaderLogin link="/tasks" children="Tarefas" />
+
+      <HeaderLogin link="/photos" children="Fotos"/>
 
       <br />
 
