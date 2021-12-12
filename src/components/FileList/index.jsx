@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MdCheckCircle, MdError, MdLink } from "react-icons/md";
+import { MdLink, MdOutlineDelete } from "react-icons/md";
 
 import { FileListStyle, ContainerInfo } from "./styles";
 
@@ -18,8 +18,7 @@ const FileList = () => {
                     </ContainerInfo>
 
                     <div>
-                        <MdCheckCircle size={24} color="#13e213" />
-                        <MdError size={24} color="#f00" />
+                        <MdOutlineDelete style={{ cursor: 'pointer' }} size={24} color="#f00" />
                         <a href="/" target="_blank">
                             <MdLink style={{ cursor: 'pointer' }} size={24} color="#000" />
                         </a>

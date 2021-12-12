@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-const UploadImage = styled.div`
+const UploadImageMessage = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #999;
-    border: 1px dotted #999;
+    color: #000;
+    border: 1px dotted #000;
     padding: 30px 0;
+    cursor: pointer;
+    text-align: center;
 `;
 
-export default UploadImage;
+export default UploadImageMessage;

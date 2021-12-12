@@ -9,9 +9,7 @@ const Photos = () => {
         <>
             <HeaderLogin link="/config-user" children="Configurações"/>
 
-            <UploadImage>
-                Arraste sua foto para aqui
-            </UploadImage>
+            <UploadImage />
 
             <FileList />
 
