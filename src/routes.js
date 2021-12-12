@@ -6,6 +6,7 @@ import Register from './pages/Register/index';
 import ForgetPassword from './pages/ForgetPassword/index';
 import ConfigUser from './pages/ConfigUser/index';
 import Photos from './pages/Photos/index';
+import Modal from './pages/Modal/index';
 
 export const AppRoutes = () => {
     return (
@@ -16,6 +17,16 @@ export const AppRoutes = () => {
                 <Route path="/forget-password" element={<ForgetPassword />} exact />
                 <Route path="/config-user" element={<ConfigUser />} exact />
                 <Route path="/photos" element={<Photos />} exact />
+            </Routes>
+        </>
+    );
+}
+
+export const ModalRoute = () => {
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Modal />} />
             </Routes>
         </>
     );
