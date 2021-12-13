@@ -46,8 +46,8 @@ export const AppRoutes = () => {
                     <Route path="/config-user" element={<ConfigUser />} exact />
                 </Route>
 
-                <Route path="/verify-email-update" element={<PrivateRoute />} exact>
-                    <Route path="/verify-email-update" element={<VerifyEmailUpdate/>} exact />
+                <Route path="/update-email" element={<PrivateRoute />} exact>
+                    <Route path="/update-email" element={<VerifyEmailUpdate/>} exact />
                 </Route>
             </Routes>
         </>
