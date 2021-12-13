@@ -23,7 +23,7 @@ export const AppRoutes = () => {
                 </Route>
 
                 <Route path="/register" element={<PublicRoute />} exact>
-                    <Route path="/register" element={<Register />} exact />
+                    <Route path="/register" element={<Register />} />
                 </Route>
 
                 <Route path="/verify-email" element={<PublicRoute />} exact>
@@ -59,6 +59,11 @@ export const ModalRoute = () => {
         <>
             <Routes>
                 <Route path="/" element={<Modal />} />
+                <Route path="/register" element={<Modal />} />
+                <Route path="/forget-password" element={<Modal />} />
+                <Route path="/password-recover" element={<Modal />} />
+                <Route path="/photos" element={<Modal />} />
+                <Route path="/config-user" element={<Modal />} />
             </Routes>
         </>
     );

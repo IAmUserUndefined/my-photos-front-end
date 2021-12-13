@@ -8,8 +8,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <ContainerApp>
-        <AppRoutes />
         <ModalRoute />
+        <AppRoutes />
       </ContainerApp>
     </BrowserRouter>
   );
