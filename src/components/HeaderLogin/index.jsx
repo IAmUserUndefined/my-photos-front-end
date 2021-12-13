@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Header/index";
 import Button from "../Button/index";
 
+import { useAuth } from "../../providers/AuthProvider";
+
 import {
   ContainerHeaderLogin,
   ContainerHeaderLoginButton,
@@ -17,6 +19,8 @@ const HeaderLogin = ({ link, children }) => {
       navigate(link);
   };
 
+  const { handleLogout } = useAuth();
+
   return (
     <ContainerHeaderLogin>
       <ContainerHeaderTitle>
@@ -25,7 +29,7 @@ const HeaderLogin = ({ link, children }) => {
 
       <ContainerHeaderLoginButton>
         <Button onClick={() => handleLink(link)}>{children}</Button>
-        <Button onClick={() => handleLink("/")}>Sair</Button>
+        <Button onClick={() => handleLogout()}>Sair</Button>
       </ContainerHeaderLoginButton>
     </ContainerHeaderLogin>
   );

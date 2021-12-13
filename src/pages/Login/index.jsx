@@ -8,6 +8,8 @@ import Button from '../../components/Button';
 import LinkForm from '../../components/LinkForm';
 import Header from '../../components/Header';
 
+import { useAuth } from "../../providers/AuthProvider";
+
 const Login = () => {
 
     const navigate = useNavigate();
@@ -15,6 +17,8 @@ const Login = () => {
     const handleLink = (link) => {
         navigate(link);
     };
+
+    const { handleLogin, buttonChildren } = useAuth();
   
     return ( 
         <>
@@ -23,7 +27,7 @@ const Login = () => {
             <Form name="login">
                 <InputForm type="email" name="email" placeholder="Email"/>
                 <InputForm type="password" name="password" placeholder="Senha"/>
-                <Button>Login</Button>
+                <Button onClick={() => handleLogin()}>{buttonChildren}</Button>
                 <LinkForm onClick={() => handleLink("/register")}>Ainda não tem um cadastro?</LinkForm>
                 <LinkForm onClick={() => handleLink("/forget-password")}>Esqueceu sua senha?</LinkForm>
             </Form>
