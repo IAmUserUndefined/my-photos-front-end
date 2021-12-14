@@ -1,16 +1,39 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 import UploadImageMessage from "./styles"
 
+import api from "../../../services/api";
+
+import { useModal } from "../../../providers/ModalProvider";
+
 const Dropzone = () => {
-    const handleOnDrop = useCallback(acceptedFiles => {
 
-        if(acceptedFiles[0] === undefined) 
-            return null
+    const { handleShowModal } = useModal();
 
-        console.log(acceptedFiles);
-    }, [])
+    const onDrop = useCallback(acceptedFiles => {
+
+      if(acceptedFiles[0] === undefined) 
+        return null
+
+      const data = new FormData();
+
+      data.append("file", acceptedFiles[0]);
+
+      api
+        .post('/photo', data, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .catch(({ response }) =>
+          response
+            ? handleShowModal(response.data.response)
+            : handleShowModal("Erro no Servidor")
+        );
+    }, []);
 
     const { 
           getRootProps, 
@@ -19,7 +42,7 @@ const Dropzone = () => {
           isDragReject 
         } = useDropzone({ 
             accept: 'image/jpeg, image/png',
-            handleOnDrop
+            onDrop
         })
     
       return (

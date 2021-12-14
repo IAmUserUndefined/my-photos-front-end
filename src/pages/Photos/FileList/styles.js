@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FileListStyle = styled.ul`
+const FileListStyle = styled.ul`
     color: #000;
     list-style: none;
     margin-top: 1.3rem;
@@ -14,8 +14,4 @@ export const FileListStyle = styled.ul`
     }
 `;
 
-export const ContainerInfo = styled.div`
-    display: flex;
-    align-items: center;
-    width: 11rem;
-`; 
+export default FileListStyle

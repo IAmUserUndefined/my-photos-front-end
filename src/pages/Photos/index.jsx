@@ -1,8 +1,8 @@
 import React from 'react';
 
-import UploadImage from '../../components/UploadImage/index';
-import FileList from '../../components/FileList';
 import HeaderLogin from "../../components/HeaderLogin/index"
+import UploadImage from './UploadImage/index';
+import FileList from './FileList';
 
 const Photos = () => {
     return ( 
