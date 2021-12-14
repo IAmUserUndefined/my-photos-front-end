@@ -12,10 +12,9 @@ const ButtonStyle = styled.button`
     margin-top: 5px;
 
     &:hover {
-        background-color: #fff;
-        border: 1.5px solid #fff;
-        color: #000;
-        transition: .3s;
+        filter: brightness(115%);
+        transform: scale(1.05);
+    }
     }
 `;
 
