@@ -3,14 +3,14 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuth } from '../../providers/AuthProvider';
 
-import LoadingGif from "../LoadingGif/index";
+import LoagindBigGif from "../LoadingBigGif/index";
 
 const PublicRoute = () => {
 
   const { loading, authenticated } = useAuth();
 
   if (loading) {
-    return <LoadingGif />;
+    return <LoagindBigGif />;
   }
 
   if (authenticated) {

@@ -8,7 +8,7 @@ import isPasswordValid from "../../utils/isPasswordValid";
 
 import { useModal } from "../ModalProvider";
 
-import LoadingGif from "../../components/LoadingGif";
+import LoadingBigGif from "../../components/LoadingGif";
 
 const useAuth = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -31,7 +31,7 @@ const useAuth = () => {
   }, []);
 
   const handleLogin = async () => {
-    setButtonChildren(<LoadingGif />);
+    setButtonChildren(<LoadingBigGif />);
 
     const form = document.forms.login;
 

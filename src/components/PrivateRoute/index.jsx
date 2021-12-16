@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from '../../providers/AuthProvider';
 import { useModal } from '../../providers/ModalProvider';
 
-import LoadingGif from "../LoadingGif/index";
+import LoadingBigGif from "../LoadingBigGif/index";
 
 const PrivateRoute = () => {
 
@@ -12,7 +12,7 @@ const PrivateRoute = () => {
   const { handleShowModal } = useModal();
 
   if (loading) {
-    return <LoadingGif />;
+    return <LoadingBigGif />;
   }
 
   if(expirySession) {
