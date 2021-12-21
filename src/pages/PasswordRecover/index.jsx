@@ -49,6 +49,7 @@ const PasswordRecover = () => {
           passwordConfirm: passwordConfirm.value,
         })
         .then(({ data }) => {
+          handleLink("/");
           handleShowModal(data.response);
         })
         .catch(({ response }) =>
@@ -61,7 +62,6 @@ const PasswordRecover = () => {
       passwordConfirm.value = "";
   
       setButtonChildren("Atualizar Senha");
-      handleLink("/");
     };
 
     return ( 
