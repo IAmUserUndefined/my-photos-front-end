@@ -13,6 +13,7 @@ import VerifyEmail from './pages/VerifyEmail/index';
 import VerifyEmailUpdate from './pages/VerifyEmailUpdate/index';
 import PasswordRecover from './pages/PasswordRecover/index';
 import Modal from './pages/Modal/index';
+import PageNotFound from './pages/PageNotFound/index';
 
 export const AppRoutes = () => {
     return (
@@ -49,6 +50,8 @@ export const AppRoutes = () => {
                 <Route path="/update-email" element={<PrivateRoute />} exact>
                     <Route path="/update-email" element={<VerifyEmailUpdate/>} exact />
                 </Route>
+
+                <Route path="/*" element={<PageNotFound/>} />
             </Routes>
         </>
     );
