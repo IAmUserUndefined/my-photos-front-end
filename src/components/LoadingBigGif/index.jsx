@@ -1,11 +1,11 @@
 import React from "react";
 
-import { LoadingBigGifContainer, LoadigBigGifStyle} from "./style";
+import { LoadingBigGifContainer } from "./style";
 
 const LoadingBigGif = () => {
   return (
     <LoadingBigGifContainer>
-      <LoadigBigGifStyle src="img/loading.gif" alt="Gif de Carregamento" />
+      <div></div>
     </LoadingBigGifContainer>
   );
 };

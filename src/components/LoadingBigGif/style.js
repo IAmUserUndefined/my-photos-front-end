@@ -1,11 +1,27 @@
 import styled from "styled-components";
 
-export const LoadigBigGifStyle = styled.img`
-    width: 8em;
-    margin: 0 auto;
-`;
 export const LoadingBigGifContainer = styled.div`
-    width: 100%;
+    @keyframes loading {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    height: 15rem;
+    padding: 1rem;
     display: flex;
     justify-content: center;
+    border-radius: 50px;
+
+    >div {
+        border: 1.5rem solid #000;
+        border-radius: 50%;
+        border-top-color: rgba(0,0,0,0.2);
+        height: 200px;
+        width: 200px;
+        animation: loading 2s linear infinite;
+    }
 `;

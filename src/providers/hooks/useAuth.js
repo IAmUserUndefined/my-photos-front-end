@@ -17,19 +17,6 @@ const useAuth = () => {
   const [buttonChildren, setButtonChildren] = useState("Login");
   const { handleShowModal } = useModal();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const tokenExpirytime = localStorage.getItem("tokenExpiryTime");
-    if (token) {
-      if(Date.now() < tokenExpirytime) {
-        setAuthenticated(true);
-      }else{
-        setExpirySession(true);
-      }
-    }
-    setLoading(false);
-  }, []);
-
   const handleLogin = async () => {
     setButtonChildren(<LoadingBigGif />);
 
@@ -90,6 +77,19 @@ const useAuth = () => {
     api.defaults.headers = { "Authorization": undefined };
     history.push("/");
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const tokenExpirytime = localStorage.getItem("tokenExpiryTime");
+    if (token) {
+      if(Date.now() < tokenExpirytime) {
+        setAuthenticated(true);
+      }else{
+        setExpirySession(false);
+      }
+    }
+    setLoading(false);
+  }, []);
 
   return { handleLogin, handleLogout, authenticated, loading, expirySession, setExpirySession, buttonChildren };
 };

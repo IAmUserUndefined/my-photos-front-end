@@ -58,12 +58,7 @@ export const ModalRoute = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Modal />} />
-                <Route path="/register" element={<Modal />} />
-                <Route path="/forget-password" element={<Modal />} />
-                <Route path="/password-recover" element={<Modal />} />
-                <Route path="/photos" element={<Modal />} />
-                <Route path="/config-user" element={<Modal />} />
+                <Route path="/*" element={<Modal />} />
             </Routes>
         </>
     );
