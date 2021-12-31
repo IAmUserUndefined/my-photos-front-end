@@ -35,11 +35,24 @@ export const ModalStyle = styled.div`
   border: 5px solid #7159c1;
   position: relative;
   animation: modal 0.6s;
+
+  @media (max-width: 576px) {
+    min-width: 250px;
+    width: 300px;
+    height: 200px;
+  }
+
   > h3 {
     color: #000;
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-align: center;
+
+    @media (max-width: 576px) {
+      font-size: 1.2rem;
+    }
+    
   }
+
   > button {
     background-color: #7159c1;
     border: none;

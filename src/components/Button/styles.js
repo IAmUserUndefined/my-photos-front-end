@@ -10,12 +10,6 @@ const ButtonStyle = styled.button`
     cursor: pointer;
     border: 1.5px solid #7159c1;
     margin-top: 5px;
-
-    &:hover {
-        filter: brightness(115%);
-        transform: scale(1.05);
-    }
-    }
 `;
 
 export default ButtonStyle;

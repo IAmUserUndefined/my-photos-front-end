@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const InputFormStyle = styled.input`
-
     padding: .7rem;
     width: 90%;
     margin-bottom: 0.5rem;

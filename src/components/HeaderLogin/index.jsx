@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import Header from "../Header/index";
 import Button from "../Button/index";
 
 import { useAuth } from "../../providers/AuthProvider";
@@ -24,7 +23,7 @@ const HeaderLogin = ({ link, children }) => {
   return (
     <ContainerHeaderLogin>
       <ContainerHeaderTitle>
-        <Header />
+        <h1>My Photos</h1>
       </ContainerHeaderTitle>
 
       <ContainerHeaderLoginButton>

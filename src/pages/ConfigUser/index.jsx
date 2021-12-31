@@ -181,9 +181,7 @@ const ConfigUser = () => {
 
         <InputForm type="email" placeholder="Email" name="email" />
 
-        <div>
-          <Button onClick={() => handleUpdateEmail()}>{buttonChidrenEmail}</Button>
-        </div>
+        <Button onClick={() => handleUpdateEmail()}>{buttonChidrenEmail}</Button>
       </Form>
 
       <br />
@@ -207,9 +205,7 @@ const ConfigUser = () => {
           name="newPasswordConfirm"
         />
 
-        <div>
-          <Button onClick={() => handleUpdatePassword()}>{buttonChidrenPassword}</Button>
-        </div>
+        <Button onClick={() => handleUpdatePassword()}>{buttonChidrenPassword}</Button>
       </Form>
 
       <br />
@@ -228,9 +224,7 @@ const ConfigUser = () => {
           name="passwordConfirm"
         />
 
-        <div>
-          <Button onClick={() => handleDeleteUser()}>{buttonChidrenDelete}</Button>
-        </div>
+        <Button onClick={() => handleDeleteUser()}>{buttonChidrenDelete}</Button>
       </Form>
   </>
   )

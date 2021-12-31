@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 
 import Form from '../../styles/form';
 
@@ -20,11 +19,6 @@ const Register = () => {
 
     const { handleShowModal } = useModal();
     const [buttonChildren, setButtonChildren] = useState("Cadastrar");
-    const navigate = useNavigate();
-
-    const handleLink = (link) => {
-        navigate(link);
-    };
 
     const handleRegister = async () => {
         setButtonChildren(<LoadingGif />);
@@ -92,7 +86,7 @@ const Register = () => {
                 <InputForm type="password" name="password" placeholder="Senha"/>
                 <InputForm type="password" name="passwordConfirm" placeholder="Confirmação de Senha"/>
                 <Button onClick={() => handleRegister()}>{buttonChildren}</Button>
-                <LinkForm onClick={() => handleLink("/")}>Já tem um cadastro?</LinkForm>
+                <LinkForm link="/">Já tem um cadastro?</LinkForm>
             </Form>
         </>
      );

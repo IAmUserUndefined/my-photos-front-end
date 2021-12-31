@@ -6,6 +6,10 @@ const ContainerApp = styled.div`
     background-color: #fff;
     padding: 1rem;
     border-radius: 15px;
+
+    @media (max-width: 576px) {
+        max-width: 300px;
+    }
 `;
 
 export default ContainerApp;

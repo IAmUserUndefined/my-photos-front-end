@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LinkFormStyle = styled.span`
+const LinkFormStyle = styled.a`
     color: #000;
     font-size: 1rem;
     cursor: pointer;
