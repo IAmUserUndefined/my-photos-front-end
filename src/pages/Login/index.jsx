@@ -17,13 +17,15 @@ const Login = () => {
         <>
             <Header />
 
-            <Form name="login">
-                <InputForm type="email" name="email" placeholder="Email"/>
-                <InputForm type="password" name="password" placeholder="Senha"/>
-                <Button onClick={() => handleLogin()}>{buttonChildren}</Button>
-                <LinkForm link="/register">Ainda não tem um cadastro?</LinkForm>
-                <LinkForm link="/forget-password">Esqueceu sua senha?</LinkForm>
-            </Form>
+            <main>
+                <Form name="login">
+                    <InputForm type="email" name="email" placeholder="Email"/>
+                    <InputForm type="password" name="password" placeholder="Senha"/>
+                    <Button onClick={() => handleLogin()}>{buttonChildren}</Button>
+                    <LinkForm link="/register">Ainda não tem um cadastro?</LinkForm>
+                    <LinkForm link="/forget-password">Esqueceu sua senha?</LinkForm>
+                </Form>
+            </main>
         </>
      );
 }

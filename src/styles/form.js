@@ -4,6 +4,7 @@ const Form = styled.form`
   color: #000;
   text-align: center;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   > div {
     text-align: center;
     margin-top: 0.6rem;

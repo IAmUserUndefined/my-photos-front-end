@@ -81,13 +81,17 @@ const Register = () => {
         <>
             <Header />
 
-            <Form name="register">
-                <InputForm type="email" name="email" placeholder="Email"/>
-                <InputForm type="password" name="password" placeholder="Senha"/>
-                <InputForm type="password" name="passwordConfirm" placeholder="Confirmação de Senha"/>
-                <Button onClick={() => handleRegister()}>{buttonChildren}</Button>
-                <LinkForm link="/">Já tem um cadastro?</LinkForm>
-            </Form>
+            <main>
+              <Form name="register">
+                  <InputForm type="email" name="email" placeholder="Email"/>
+                  <InputForm type="password" name="password" placeholder="Senha"/>
+                  <InputForm type="password" name="passwordConfirm" placeholder="Confirmação de Senha"/>
+
+                  <Button onClick={() => handleRegister()}>{buttonChildren}</Button>
+                  
+                  <LinkForm link="/">Já tem um cadastro?</LinkForm>
+              </Form>
+            </main>
         </>
      );
 }

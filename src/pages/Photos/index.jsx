@@ -9,9 +9,10 @@ const Photos = () => {
         <>
             <HeaderLogin link="/config-user" children="Configurações"/>
 
-            <UploadImage />
-
-            <FileList />
+            <main>
+                <UploadImage />
+                <FileList />
+            </main>
 
         </>
      );

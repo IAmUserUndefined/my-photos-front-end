@@ -4,7 +4,6 @@ const LinkFormStyle = styled.a`
     color: #000;
     font-size: 1rem;
     cursor: pointer;
-    margin-top: 0.4rem;
     display: inline-block;
     font-weight: bold;
     margin-top: 12px;

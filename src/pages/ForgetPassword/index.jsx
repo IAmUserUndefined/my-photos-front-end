@@ -59,11 +59,13 @@ const ForgetPassword = () => {
         <>
             <Header />
 
-            <Form name="forgetPassword">
-                <InputForm type="email" name="email" placeholder="Email"/>
-                <Button onClick={() => handleForgetPassword()}>{buttonChildren}</Button>
-                <LinkForm link="/">Lembrou sua senha?</LinkForm>
-            </Form>
+            <main>
+              <Form name="forgetPassword">
+                  <InputForm type="email" name="email" placeholder="Email"/>
+                  <Button onClick={() => handleForgetPassword()}>{buttonChildren}</Button>
+                  <LinkForm link="/">Lembrou sua senha?</LinkForm>
+              </Form>
+            </main>
         </>
      );
 }

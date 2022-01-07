@@ -68,11 +68,13 @@ const PasswordRecover = () => {
         <>
             <Header />
 
-            <Form name="recoverPassword">
-                <InputForm type="password" name="password" placeholder="Senha"/>
-                <InputForm type="password" name="passwordConfirm" placeholder="Confirmação de Senha"/>
-                <Button onClick={() => handleRecoverPassword()}>{buttonChildren}</Button>
-            </Form>
+            <main>
+              <Form name="recoverPassword">
+                  <InputForm type="password" name="password" placeholder="Senha"/>
+                  <InputForm type="password" name="passwordConfirm" placeholder="Confirmação de Senha"/>
+                  <Button onClick={() => handleRecoverPassword()}>{buttonChildren}</Button>
+              </Form>
+            </main>
         </>
      );
 }
