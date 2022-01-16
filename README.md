@@ -1,6 +1,6 @@
 # My Photos - Front-end
 
-# <a href="https://my-photos-jp-dev.herokuapp.com/">🔗 My Photos</a>
+# <a href="https://myphotosjpdev.herokuapp.com/">🔗 My Photos</a>
 <p>🚀 Aplicação voltada para armazenamento de fotos</p>
 
 # Status da Aplicação
