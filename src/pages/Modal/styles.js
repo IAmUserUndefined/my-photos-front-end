@@ -58,7 +58,6 @@ export const ModalStyle = styled.div`
     border: none;
     padding: 5px 5px 0 5px;
     font-size: 25px;
-    color: #000;
     cursor: pointer;
     position: absolute;
     top: -10px;
@@ -66,10 +65,16 @@ export const ModalStyle = styled.div`
     border-radius: 100%;
     font-size: 1.7rem;
     font-weight: bold;
+    > svg {
+      color: #fff;
+    }
     &:hover {
-      color: chartreuse;
-      background-color: #000;
+      background-color: #fff;
       transition: 0.6s;
+
+      > svg {
+        color: #7159c1;
+      }
     }
   }
 `;

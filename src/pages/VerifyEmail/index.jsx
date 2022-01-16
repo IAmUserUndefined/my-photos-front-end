@@ -8,14 +8,9 @@ import api from "../../services/api";
 import { useModal } from "../../providers/ModalProvider";
 
 const VerifyEmail = () => {
-
   const navigate = useNavigate();
   const { search } = useLocation();
   const { handleShowModal } = useModal();
-
-  const handleLink = (link) => {
-      navigate(link);
-  };
 
   useEffect(() => {
     const handleVerifyEmail = async () => {
@@ -29,7 +24,7 @@ const VerifyEmail = () => {
         );
     };
     handleVerifyEmail();
-    handleLink("/");
+    navigate("/");
   });
 
   return <VerifyEmailTitle />;

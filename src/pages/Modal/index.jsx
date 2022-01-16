@@ -12,7 +12,7 @@ const Modal = () => {
     <ModalContainer onClick={handleCloseModal} display={display}>
       <ModalStyle id="modal">
         <button onClick={handleCloseModal}>
-          <CgClose style={{ color: "#fff" }} />
+          <CgClose />
         </button>
         <h3 id="message">{message}</h3>
       </ModalStyle>

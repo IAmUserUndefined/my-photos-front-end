@@ -12,10 +12,6 @@ const VerifyEmailUpdate = ({ location }) => {
   const { search } = useLocation();
   const { handleShowModal } = useModal();
 
-  const handleLink = (link) => {
-    navigate(link);
-  }
-
   useEffect(() => {
     const handleVerifyEmailUpdate = async () => {
       await api
@@ -29,7 +25,7 @@ const VerifyEmailUpdate = ({ location }) => {
     };
 
     handleVerifyEmailUpdate();
-    handleLink("/config-user");
+    navigate("/config-user");
   });
   return <VerifyEmailTitle />;
 };
