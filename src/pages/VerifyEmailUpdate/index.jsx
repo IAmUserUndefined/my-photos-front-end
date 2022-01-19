@@ -20,7 +20,7 @@ const VerifyEmailUpdate = ({ location }) => {
         .catch(({ response }) =>
           response
             ? handleShowModal(response.data.response)
-            : handleShowModal("Erro no Servidor")
+            : handleShowModal("Erro no Servidor, tente novamente mais tarde")
         );
     };
 

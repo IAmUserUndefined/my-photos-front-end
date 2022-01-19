@@ -8,7 +8,7 @@ import isPasswordValid from "../../utils/isPasswordValid";
 
 import { useModal } from "../ModalProvider";
 
-import LoadingBigGif from "../../components/LoadingGif";
+import LoadingGif from "../../components/LoadingGif";
 
 const useAuth = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -16,34 +16,43 @@ const useAuth = () => {
   const [loading, setLoading] = useState(true);
   const [buttonChildren, setButtonChildren] = useState("Login");
   const { handleShowModal } = useModal();
+  const [formValues, setFormValues] = useState({});
 
-  const handleLogin = async () => {
-    setButtonChildren(<LoadingBigGif />);
+  useEffect(() => {
+    const token = localStorage.getItem("tokenMyPhotos");
+    const tokenExpirytime = localStorage.getItem("tokenExpiryTimeMyPhotos");
 
-    const form = document.forms.login;
+    if (token) {
 
-    let { email, password } = form;
+      if(Date.now() < tokenExpirytime) {
+        setAuthenticated(true);
+      }else{
+        setExpirySession(false);
+        handleLogout();
+      }
+      
+    }
+    setLoading(false);
+  }, []);
 
-    if (!email.value || !password.value) {
-      setButtonChildren("Login");
+  const handleLogin = async (e) => {
+
+    e.preventDefault();
+
+    const { email, password } = e.target;
+
+    if (!email.value || !password.value)
       return handleShowModal("Preencha todos os campos");
-    }
 
-    if (!isEmailValid(email.value)) {
-      email.value = "";
-      password.value = "";
-      setButtonChildren("Login");
+    if (!isEmailValid(email.value))
       return handleShowModal("Email/Senha Incorreto(s)");
-    }
 
     const { result } = isPasswordValid(password.value);
 
-    if (!result) {
-      email.value = "";
-      password.value = "";
-      setButtonChildren("Login");
+    if (!result) 
       return handleShowModal("Email/Senha Incorreto(s)");
-    }
+
+    setButtonChildren(<LoadingGif />);
 
     await api
       .post("/user/login", {
@@ -51,9 +60,10 @@ const useAuth = () => {
         password: password.value,
       })
       .then(({ data }) => {
+        setFormValues({});
         setButtonChildren("Login");
-        localStorage.setItem("token", data.response);
-        localStorage.setItem("tokenExpiryTime", new Date().setHours(new Date().getHours() + 2));
+        localStorage.setItem("tokenMyPhotos", data.response);
+        localStorage.setItem("tokenExpiryTimeMyPhotos", new Date().setHours(new Date().getHours() + 2));
         api.defaults.headers = { "Authorization": `Bearer ${data.response}` };
         setAuthenticated(true);
         history.push("/tasks");
@@ -61,37 +71,23 @@ const useAuth = () => {
       .catch(({ response }) =>
         response
           ? handleShowModal(response.data.response)
-          : handleShowModal("Erro no Servidor")
+          : handleShowModal("Erro no Servidor, tente novamente mais tarde")
       );
-
-      email.value = "";
-      password.value = "";
 
       setButtonChildren("Login");
   };
 
   const handleLogout = () => {
     setAuthenticated(false);
-    localStorage.removeItem("token");
-    localStorage.removeItem("tokenExpiryTime");
+    localStorage.removeItem("tokenMyPhotos");
+    localStorage.removeItem("tokenExpiryTimeMyPhotos");
     api.defaults.headers = { "Authorization": undefined };
     history.push("/");
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const tokenExpirytime = localStorage.getItem("tokenExpiryTime");
-    if (token) {
-      if(Date.now() < tokenExpirytime) {
-        setAuthenticated(true);
-      }else{
-        setExpirySession(false);
-      }
-    }
-    setLoading(false);
-  }, []);
-
-  return { handleLogin, handleLogout, authenticated, loading, expirySession, setExpirySession, buttonChildren };
+  return { 
+    handleLogin, handleLogout, authenticated, loading, expirySession, setExpirySession, buttonChildren, formValues, setFormValues 
+  };
 };
 
 export default useAuth;

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router';
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router";
 
-import Form from '../../styles/form';
+import Form from "../../styles/form";
 
-import InputForm from "../../components/InputForm/index"
-import Button from '../../components/Button';
-import Header from '../../components/Header';
+import InputForm from "../../components/InputForm/index";
+import Button from "../../components/Button";
+import Header from "../../components/Header";
 import LoadingGif from "../../components/LoadingGif/index";
 
 import api from "../../services/api";
@@ -14,69 +14,75 @@ import isPasswordValid from "../../utils/isPasswordValid";
 import { useModal } from "../../providers/ModalProvider";
 
 const PasswordRecover = () => {
-  
-    const { handleShowModal } = useModal();
-    const [buttonChildren, setButtonChildren] = useState("Atualizar Senha");
-    const navigate = useNavigate();
-    const { search } = useLocation();
-  
-    const handleLink = (link) => {
-        navigate(link);
-    };
-  
-    const handleRecoverPassword = async () => {
-      setButtonChildren(<LoadingGif />);
-  
-      const form = document.forms.recoverPassword;
-  
-      let { password, passwordConfirm } = form;
-  
-      if (!password.value || !passwordConfirm.value) {
-        return handleShowModal("Preencha todos os campos");
-      }
-  
-      const { result, message } = isPasswordValid(password.value);
-  
-      if (!result) {
-        password.value = "";
-        passwordConfirm.value = "";
-        return handleShowModal(message);
-      }
-  
-      await api
-        .patch(`/user/password/password-recover${search}`, {
-          password: password.value,
-          passwordConfirm: passwordConfirm.value,
-        })
-        .then(({ data }) => {
-          handleLink("/");
-          handleShowModal(data.response);
-        })
-        .catch(({ response }) =>
-          response
-            ? handleShowModal(response.data.response)
-            : handleShowModal("Erro no Servidor")
-        );
-  
-      password.value = "";
-      passwordConfirm.value = "";
-  
-      setButtonChildren("Atualizar Senha");
-    };
+  const { handleShowModal } = useModal();
+  const [formValues, setFormValues] = useState({});
+  const [buttonChildren, setButtonChildren] = useState("Atualizar Senha");
+  const navigate = useNavigate();
+  const { search } = useLocation();
 
-    return ( 
-        <>
-            <Header />
+  const handleLink = (link) => {
+    navigate(link);
+  };
 
-            <main>
-              <Form name="recoverPassword">
-                  <InputForm type="password" name="password" placeholder="Senha"/>
-                  <InputForm type="password" name="passwordConfirm" placeholder="Confirmação de Senha"/>
-                  <Button onClick={() => handleRecoverPassword()}>{buttonChildren}</Button>
-              </Form>
-            </main>
-        </>
-     );
-}
- 
+  const handleRecoverPassword = async (e) => {
+    e.preventDefault();
+
+    const { password, passwordConfirm } = e.target;
+
+    if (!password.value || !passwordConfirm.value)
+      return handleShowModal("Preencha todos os campos");
+
+    const { result, message } = isPasswordValid(password.value);
+
+    if (!result) return handleShowModal(message);
+
+    setButtonChildren(<LoadingGif />);
+
+    await api
+      .patch(`/user/password/password-recover${search}`, {
+        password: password.value,
+        passwordConfirm: passwordConfirm.value,
+      })
+      .then(({ data }) => {
+        setFormValues({});
+        handleLink("/");
+        handleShowModal(data.response);
+      })
+      .catch(({ response }) =>
+        response
+          ? handleShowModal(response.data.response)
+          : handleShowModal("Erro no Servidor, tente novamente mais tarde")
+      );
+
+    setButtonChildren("Atualizar Senha");
+  };
+
+  return (
+    <>
+      <Header />
+
+      <main>
+        <Form onSubmit={handleRecoverPassword}>
+          <InputForm
+            type="password"
+            placeholder="Nova Senha"
+            name="password"
+            formValues={formValues}
+            setFormValues={setFormValues}
+          />
+          <InputForm
+            type="password"
+            placeholder="Confirmação de Nova Senha"
+            name="passwordConfirm"
+            formValues={formValues}
+            setFormValues={setFormValues}
+          />
+
+          <Button type="submit">{buttonChildren}</Button>
+        </Form>
+      </main>
+    </>
+  );
+};
+
 export default PasswordRecover;
