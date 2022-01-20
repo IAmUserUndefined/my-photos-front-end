@@ -47,9 +47,7 @@ const Register = () => {
         passwordConfirm: passwordConfirm.value,
       })
       .then(({ data }) => {
-        email.value = "";
-        password.value = "";
-        passwordConfirm.value = "";
+        setFormValues({});
         handleShowModal(data.response);
       })
       .catch(({ response }) =>
