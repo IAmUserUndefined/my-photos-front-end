@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LoadingBigGifContainer } from "./style";
+import { LoadingBigGifContainer } from "./styles";
 
 const LoadingBigGif = () => {
   return (
